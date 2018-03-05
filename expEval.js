@@ -18,24 +18,23 @@ Example Test Case
 */
 function evaluate(str){
   var expArray = str.split(' ')
-  expressionEval(expArray)
+  return expressionEval(expArray)
 }
 
 function expressionEval(expArray) {
-  sum = 0;
   var values = [];
   for(var a = expArray.length - 1; a >= 0; a--){
     if((expArray[a] !== '+')){
       values.push(Number(expArray[a]))
     } else {
-      sum += (values.pop() + values.pop());
+      values.push(values.pop() + values.pop()); //when you come across a + operator take the last two numbers off, add them, and put them back on the number array
     }
-    console.log(values, sum)
   }
+  return values[0]
 
 }
 
 
-console.log(evaluate("+ 1 2"))
-// console.log(evaluate("+ 4 + 1 + 2 3"))
+// console.log(evaluate("+ 1 2"))
+console.log(evaluate("+ 4 + 1 + 2 3"))
 // console.log(evaluate("+ + 1 + 2 3 4"))
