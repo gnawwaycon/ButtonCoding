@@ -31,10 +31,15 @@ function expressionEval(expArray) {
     }
   }
   return values[0]
-
 }
 
 
-// console.log(evaluate("+ 1 2"))
-console.log(evaluate("+ 4 + 1 + 2 3"))
-// console.log(evaluate("+ + 1 + 2 3 4"))
+/* tests
+console.log(evaluate("") == 0)
+console.log(evaluate("+ 1 2") == 3)
+console.log(evaluate("- 1 -2") == 3)
+console.log(evaluate("+ 1 + 2 3") == 6)
+console.log(evaluate("+ 4 - 1 + 2 3") == 0)
+console.log(evaluate("+ + 1 + 2 3 4") == 10)
+console.log(evaluate("- + 1 + 2 3 4") == 2)
+*/
