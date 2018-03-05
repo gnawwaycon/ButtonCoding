@@ -24,15 +24,16 @@ function evaluate(str){
 function expressionEval(expArray) {
   var values = [];
   for(var a = expArray.length - 1; a >= 0; a--){
-    if((expArray[a] !== '+')){
-      values.push(Number(expArray[a]))
+    if(expArray[a]=='+'){
+      values.push(values.pop() + values.pop());
+    } else if(expArray[a]=='-'){
+      values.push((values.pop() - values.pop()));
     } else {
-      values.push(values.pop() + values.pop()); //when you come across a + operator take the last two numbers off, add them, and put them back on the number array
+      values.push(Number(expArray[a]))
     }
   }
   return values[0]
 }
-
 
 /* tests
 console.log(evaluate("") == 0)
